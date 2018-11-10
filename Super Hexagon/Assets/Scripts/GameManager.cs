@@ -30,11 +30,6 @@ public class GameManager : MonoBehaviour
         rotatePermission = true;
     }
 
-    void Update()
-    {
-
-    }
-
     public void RevokePermission()
     {
         rotatePermission = false;

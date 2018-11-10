@@ -15,11 +15,6 @@ public class Spawner : MonoBehaviour
 
     public float nextTimeToSpawn = 0f;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         if (Time.time >= nextTimeToSpawn && GameManager.instance.rotatePermission == true)
