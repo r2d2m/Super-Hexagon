@@ -13,22 +13,22 @@ public class CameraRotate : MonoBehaviour
 
     // to change the color every blank seconds 
     public float changeColorEvery = 1f;
-    private float colorstep;
-    private Color[] colors = new Color[7];
-    private int i;
+    private float _colorstep;
+    private Color[] _colors = new Color[7];
+    private int _i;
 
     // the starting color to lerp with
-    private Color lerpedColor = Color.magenta;
+    private Color _lerpedColor = Color.magenta;
 
     void Awake()
     {
-        colors[0] = Color.magenta;
-        colors[1] = Color.red;
-        colors[2] = Color.yellow;
-        colors[3] = Color.green;
-        colors[4] = Color.cyan;
-        colors[5] = Color.blue;
-        colors[6] = Color.magenta;
+        _colors[0] = Color.magenta;
+        _colors[1] = Color.red;
+        _colors[2] = Color.yellow;
+        _colors[3] = Color.green;
+        _colors[4] = Color.cyan;
+        _colors[5] = Color.blue;
+        _colors[6] = Color.magenta;
 
         _mainCamera = GetComponent<Camera>();
 
@@ -50,23 +50,23 @@ public class CameraRotate : MonoBehaviour
     {
         if (GameManager.instance.giveAnEpilepticAttack == true)
         {
-            if (colorstep < changeColorEvery)
+            if (_colorstep < changeColorEvery)
             {
-                lerpedColor = Color.Lerp(colors[i], colors[i + 1], colorstep);
-                _mainCamera.backgroundColor = lerpedColor;
-                colorstep += 0.002f;
+                _lerpedColor = Color.Lerp(_colors[_i], _colors[_i + 1], _colorstep);
+                _mainCamera.backgroundColor = _lerpedColor;
+                _colorstep += 0.002f;
             }
             else
             {
-                colorstep = 0;
+                _colorstep = 0;
 
-                if (i < (colors.Length - 2))
+                if (_i < (_colors.Length - 2))
                 {
-                    i++;
+                    _i++;
                 }
                 else
                 {
-                    i = 0;
+                    _i = 0;
                 }
             }
         }
