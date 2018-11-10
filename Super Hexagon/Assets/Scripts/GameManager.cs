@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     public float slowDownFactor = 10f;
     public float slowMotionTime = 1f;
 
+    public GameObject gameOverText;
+    public GameObject restartText;
+
     void Awake()
     {
         if (instance == null)
@@ -32,6 +35,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         instance.rotatePermission = true;
+        instance.gameOverText.SetActive(false);
+        instance.restartText.SetActive(false);
     }
 
     void Update()
@@ -78,5 +83,8 @@ public class GameManager : MonoBehaviour
         instance.RevokePermission();
         Time.timeScale = 1f;
         Time.fixedDeltaTime = Time.fixedDeltaTime * slowDownFactor;
+
+        instance.gameOverText.SetActive(true);
+        instance.restartText.SetActive(true);
     }
 }
