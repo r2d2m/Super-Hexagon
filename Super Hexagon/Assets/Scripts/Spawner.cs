@@ -22,7 +22,7 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        if (Time.time >= nextTimeToSpawn)
+        if (Time.time >= nextTimeToSpawn && GameManager.instance.rotatePermission == true)
         {
             Instantiate(hexagonPrefab, Vector3.zero, Quaternion.identity);
             nextTimeToSpawn = Time.time + 1 / spawnRate;

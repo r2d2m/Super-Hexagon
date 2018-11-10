@@ -19,9 +19,12 @@ public class Hexagon : MonoBehaviour
         transform.localScale = Vector3.one * 17f;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        transform.localScale -= Vector3.one * shrinkSpeed * Time.deltaTime;
+        if (GameManager.instance.rotatePermission == true)
+        {
+            transform.localScale -= Vector3.one * shrinkSpeed * Time.deltaTime;
+        }
 
         if (transform.localScale.x <= 0.05f)
         {
