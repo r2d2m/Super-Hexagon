@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverText;
     public GameObject restartText;
     public GameObject scoreText;
+    public GameObject topScoreText;
 
     public float score = 0f;
     public int increaseEverySecond = 1;
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
         instance.rotatePermission = true;
         instance.gameOverText.SetActive(false);
         instance.restartText.SetActive(false);
+        instance.topScoreText.SetActive(false);
     }
 
     void Update()
@@ -95,6 +97,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         Time.fixedDeltaTime = Time.fixedDeltaTime * slowDownFactor;
 
+        instance.TopScore();
         instance.gameOverText.SetActive(true);
         instance.restartText.SetActive(true);
     }
@@ -102,6 +105,22 @@ public class GameManager : MonoBehaviour
     private void SetScore()
     {
         Text dummytext = scoreText.GetComponent<Text>();
-        dummytext.text = "Score: " + ((int)score).ToString();
+        dummytext.text = "Your  Score: " + ((int)score).ToString();
+    }
+
+    private void TopScore()
+    {
+        if ((int)instance.score > PlayerPrefs.GetInt("Top Score", 0))
+        {
+            PlayerPrefs.SetInt("Top Score", (int)instance.score);
+            Text dummyText = topScoreText.GetComponent<Text>();
+            dummyText.text = "Top  Score: " + PlayerPrefs.GetInt("Top Score", 0).ToString();
+        }
+        else
+        {
+            Text dummyText = topScoreText.GetComponent<Text>();
+            dummyText.text = "Top  Score: " + PlayerPrefs.GetInt("Top Score", 0).ToString();
+        }
+        instance.topScoreText.SetActive(true);
     }
 }
