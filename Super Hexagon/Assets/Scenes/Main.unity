@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1809dc1b89137064c9577a171164272b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  giveAnEpilepticAttack: 0
+  giveAnEpilepticAttack: 1
   rotatePermission: 1
   slowDownFactor: 10
   slowMotionTime: 1
@@ -1088,3 +1088,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b7d92e881611547a5a925006941095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sounds:
+  - name: GameOver
+    clip: {fileID: 8300000, guid: e0db4707970898746852ed20986fd23f, type: 3}
+    loop: 0
+    volume: 0.801
+    source: {fileID: 0}
+  - name: Start
+    clip: {fileID: 8300000, guid: c587aad5b3ebe32418c7244fef4cc3ef, type: 3}
+    loop: 0
+    volume: 0.904
+    source: {fileID: 0}

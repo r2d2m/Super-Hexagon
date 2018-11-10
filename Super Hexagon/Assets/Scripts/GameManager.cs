@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        AudioManager.instance.Play("Start");
         score = 0;
         instance.rotatePermission = true;
         instance.gameOverText.SetActive(false);
@@ -81,6 +82,7 @@ public class GameManager : MonoBehaviour
     public void EndLevel()
     {
         StartCoroutine(SlowDownAndStop());
+        AudioManager.instance.Play("GameOver");
     }
 
     private void RestartLevel()
