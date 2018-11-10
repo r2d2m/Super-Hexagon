@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverText;
     public GameObject restartText;
+    public GameObject scoreText;
+
+    public float score = 0f;
+    public int increaseEverySecond = 1;
 
     void Awake()
     {
@@ -34,6 +39,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        score = 0;
         instance.rotatePermission = true;
         instance.gameOverText.SetActive(false);
         instance.restartText.SetActive(false);
@@ -41,7 +47,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (instance.rotatePermission == false)
+        if (instance.rotatePermission == true)
+        {
+            score += increaseEverySecond * Time.deltaTime;
+            instance.SetScore();
+        }
+        else
         {
             if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
             {
@@ -86,5 +97,11 @@ public class GameManager : MonoBehaviour
 
         instance.gameOverText.SetActive(true);
         instance.restartText.SetActive(true);
+    }
+
+    private void SetScore()
+    {
+        Text dummytext = scoreText.GetComponent<Text>();
+        dummytext.text = "Score: " + ((int)score).ToString();
     }
 }
