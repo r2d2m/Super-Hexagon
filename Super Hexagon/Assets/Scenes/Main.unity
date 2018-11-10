@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb295ddae1f1074199bb4fefc59d057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeColorEvery: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -478,8 +479,8 @@ RectTransform:
   m_Children:
   - {fileID: 125091233}
   - {fileID: 1822827337}
-  - {fileID: 1737846537}
   - {fileID: 1577786358}
+  - {fileID: 1737846537}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -515,6 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1809dc1b89137064c9577a171164272b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  giveAnEpilepticAttack: 0
   rotatePermission: 1
   slowDownFactor: 10
   slowMotionTime: 1
@@ -611,7 +613,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1066391535}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -787,7 +789,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1066391535}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

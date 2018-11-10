@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    // whether or not to shift colors
+    public bool giveAnEpilepticAttack;
+
+    [HideInInspector]
     public bool rotatePermission = true;
 
     public float slowDownFactor = 10f;
@@ -23,6 +27,7 @@ public class GameManager : MonoBehaviour
     public GameObject scoreText;
     public GameObject topScoreText;
 
+    [HideInInspector]
     public float score = 0f;
     public int increaseEverySecond = 1;
 
