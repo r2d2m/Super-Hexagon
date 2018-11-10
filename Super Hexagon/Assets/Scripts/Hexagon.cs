@@ -13,7 +13,6 @@ public class Hexagon : MonoBehaviour
 
     public float shrinkSpeed = 3f;
 
-
     void Start()
     {
         rb.rotation = Random.Range(0, 360);
