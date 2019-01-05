@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public float movementSpeed = 600f;
+    public float movementSpeed = 450f;
 
     private float _movement = 0f;
 
