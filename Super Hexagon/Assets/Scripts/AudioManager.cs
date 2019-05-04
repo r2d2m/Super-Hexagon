@@ -6,32 +6,26 @@ https://github.com/shubham-saudolla
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using UnityEngine.Audio;
+using System;
 
 public class AudioManager : MonoBehaviour
 {
-    // the array that holds all the sounds
     public Sound[] sounds;
 
-    // for a singleton pattern
     public static AudioManager instance;
 
-    void Awake()
+    private void Awake()
     {
         DontDestroyOnLoad(gameObject);
 
         if (instance == null)
-        {
             instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
+        else if (instance != this)
+            Destroy(gameObject);
     }
 
-    void Start()
+    private void Start()
     {
         foreach (Sound s in sounds)
         {
@@ -48,7 +42,7 @@ public class AudioManager : MonoBehaviour
 
         if (s == null)
         {
-            Debug.Log("Sound " + name + " not found.");
+            Debug.LogError("Sound " + name + " not found");
             return;
         }
 

@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
     public void EndLevel()
     {
         StartCoroutine(SlowDownAndStop());
-        AudioManager.instance.Play("GameOver");
+        AudioManager.instance.Play("End");
     }
 
     private void RestartLevel()
